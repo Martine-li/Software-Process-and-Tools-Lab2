@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.media.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.web.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller.RootLayout">
+   <top>
+      <MenuBar prefHeight="10.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="文件">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="编辑">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Delete" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="帮助">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+            <Menu mnemonicParsing="false" text="历史记录">
+              <items>
+                <MenuItem mnemonicParsing="false" text="Action 1" />
+              </items>
+            </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+   <left>
+      <AnchorPane>
+         <children>
+            <ImageView fitHeight="273.0" fitWidth="187.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+               <effect>
+                  <Lighting>
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant />
+                     </light>
+                  </Lighting>
+               </effect>
+               <image>
+                  <Image url="file:/D:/火线时刻/猫咪.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="button_start" layoutX="14.0" layoutY="262.0" mnemonicParsing="false" onAction="#button_start_click" text="开始练习" />
+            <Button layoutX="91.0" layoutY="262.0" mnemonicParsing="false" onAction="#button_restart_click" text="重新开始" />
+         </children>
+      </AnchorPane>
+   </left>
+   <center>
+      <Pane prefHeight="271.0" prefWidth="159.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="question1" layoutY="50.0" prefHeight="28.0" prefWidth="220.0" text="加减小练习" wrapText="true">
+               <font>
+                  <Font size="18.0" />
+               </font></Label>
+            <Button layoutX="76.0" layoutY="262.0" mnemonicParsing="false" text="上一题" />
+            <TextField fx:id="result" layoutY="121.0" />
+            <TextField fx:id="showjudge" layoutY="182.0" />
+            <Button fx:id="button_confirm" layoutX="121.0" layoutY="121.0" mnemonicParsing="false" onAction="#getresult" text="确认" />
+         </children>
+      </Pane>
+   </center>
+   <right>
+      <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="button_start1" layoutX="73.0" layoutY="256.0" mnemonicParsing="false" onAction="#button_next_click" prefHeight="28.0" prefWidth="64.0" text="下一题" />
+            <CheckBox layoutY="47.0" mnemonicParsing="false" onAction="#setflag1" text="加法" />
+            <CheckBox layoutX="51.0" layoutY="47.0" mnemonicParsing="false" onAction="#setflag0" text="减法" />
+            <CheckBox layoutX="103.0" layoutY="47.0" mnemonicParsing="false" onAction="#setflag2" text="加减混合" />
+            <RadioButton layoutX="-1.0" layoutY="22.0" mnemonicParsing="false" text="专项选择" />
+            <RadioButton layoutY="103.0" mnemonicParsing="false" text="题目数量" />
+            <CheckBox layoutX="104.0" layoutY="128.0" mnemonicParsing="false" onAction="#settotal50" text="50" />
+            <CheckBox layoutX="52.0" layoutY="128.0" mnemonicParsing="false" onAction="#settotal30" text="30" />
+            <CheckBox layoutX="1.0" layoutY="128.0" mnemonicParsing="false" onAction="#settotal10" text="10" />
+            <RadioButton layoutX="1.0" layoutY="184.0" mnemonicParsing="false" text="练习模式" />
+            <Button layoutX="6.0" layoutY="212.0" mnemonicParsing="false" onAction="#showanswer" text="显示答案" />
+         </children></Pane>
+   </right>
+   <bottom>
+      <SplitPane dividerPositions="0.29797979797979796" prefHeight="88.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <Label fx:id="total" layoutX="10.0" layoutY="7.0" text="总题数：" />
+                  <Label fx:id="total_right" layoutX="10.0" layoutY="36.0" text="答对题数：" />
+                  <Label fx:id="total_wrong" layoutX="10.0" layoutY="65.0" text="错误题数：" />
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="91.0" prefWidth="417.0">
+               <children>
+                  <Label fx:id="error" layoutX="8.0" layoutY="48.0" text="当前还没有错题" />
+                  <Button layoutX="177.0" layoutY="44.0" mnemonicParsing="false" onAction="#foreerror" text="上一错题" />
+                  <Button layoutX="294.0" layoutY="44.0" mnemonicParsing="false" onAction="#nexterror" text="下一错题" />
+                  <Button layoutX="8.0" layoutY="14.0" mnemonicParsing="false" onAction="#showerrornow" text="错题展示" />
+               </children></AnchorPane>
+        </items>
+      </SplitPane>
+   </bottom>
+</BorderPane>
